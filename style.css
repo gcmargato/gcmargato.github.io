@@ -73,7 +73,7 @@ body {
 /* Criar “coluna vazia” à esquerda movendo o texto para a direita */
 .content-section {
   margin-bottom: 28px;
-  margin-left: 160px;          /* espaço vazio à esquerda */
+  margin-left: 60px;          /* espaço vazio à esquerda */
   max-width: 540px;            /* coluna de texto */
 }
 
