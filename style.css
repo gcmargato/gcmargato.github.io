@@ -1,19 +1,19 @@
-/* Basic reset */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Page */
+/* Página */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  color: #111;
-  background-color: #f5f5f5;
+  color: #222;
+  background-color: #ffffff; /* minimal, fundo branco */
 }
 
-/* Fixed header so it doesn't cover text */
+/* Cabeçalho fixo com navegação */
 .site-header {
   position: fixed;
   top: 0;
@@ -27,46 +27,76 @@ body {
 .header-inner {
   max-width: 900px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 20px;
 }
 
-/* Container / main content */
-#container,
-.page {
-  max-width: 800px;
-  margin: 80px auto 40px auto;  /* 80px top so it's below header */
-  padding: 30px 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+.logo-block {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header text (for the simple version without fixed header) */
-header h1,
 .site-title {
-  font-size: 2.2rem;
-  margin-bottom: 0.2em;
-}
-
-.subtitle,
-.site-subtitle {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1.5em;
-}
-
-/* Text */
-main p {
-  margin-bottom: 1em;
-  font-size: 1rem;
-}
-
-.highlight,
-.emph {
+  font-size: 1.3rem;
   font-weight: 600;
+}
+
+.site-subtitle {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.site-nav a {
+  margin-left: 16px;
+  font-size: 0.9rem;
+  color: #444;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Conteúdo principal com coluna vazia à esquerda */
+.page {
+  max-width: 900px;
+  margin: 90px auto 40px auto;  /* empurra abaixo do header */
+  padding: 0 40px 40px 40px;
+  display: block;
+}
+
+/* Criar “coluna vazia” à esquerda movendo o texto para a direita */
+.content-section {
+  margin-bottom: 28px;
+  margin-left: 160px;          /* espaço vazio à esquerda */
+  max-width: 540px;            /* coluna de texto */
+}
+
+/* Títulos e texto justificado */
+.content-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.4em;
+}
+
+.content-section p,
+.content-section ul {
+  font-size: 0.98rem;
+  text-align: justify;         /* texto justificado */
+  text-justify: inter-word;    /* melhor distribuição entre palavras [web:53][web:59] */
+}
+
+.content-section ul {
+  list-style-type: disc;
+  padding-left: 1.2em;         /* para o bullet não colar na margem */
+}
+
+.content-section li {
+  margin-bottom: 0.3em;
 }
 
 /* Links */
@@ -80,46 +110,34 @@ a:focus {
   text-decoration: underline;
 }
 
-/* Section titles */
-h2 {
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  font-size: 1.2rem;
+/* Rodapé */
+.site-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 14px 20px 20px 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
 }
 
-/* Lists */
-ul {
-  list-style-type: disc;
-  margin-left: 1.5em;
-}
-
-ul li {
-  margin-bottom: 0.4em;
-}
-
-/* Navigation (if you use it) */
-.site-nav a {
-  margin-left: 16px;
-  font-size: 0.95rem;
-  color: #444;
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-  color: #000;
-  text-decoration: underline;
-}
-
-/* Small screens */
-@media (max-width: 600px) {
-  #container,
-  .page {
-    margin: 100px 10px 20px 10px; /* a bit more top margin on phones */
-    padding: 20px;
+/* Responsivo: reduzir a coluna vazia à esquerda em ecrãs pequenos */
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  header h1,
-  .site-title {
-    font-size: 1.8rem;
+  .site-nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
+  .page {
+    margin: 110px 10px 30px 10px;
+    padding: 0 10px 30px 10px;
+  }
+
+  .content-section {
+    margin-left: 0;        /* sem coluna vazia em telemóvel */
+    max-width: 100%;
   }
 }
