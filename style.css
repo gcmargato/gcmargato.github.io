@@ -65,9 +65,10 @@ body {
 /* Conteúdo principal com coluna vazia à esquerda */
 .page {
   max-width: 900px;
-  margin: 90px auto 40px auto;  /* empurra abaixo do header */
+  margin: 120px auto 40px auto; /* aumenta este 120px */
   padding: 0 40px 40px 40px;
   display: block;
+}
 }
 
 /* Criar “coluna vazia” à esquerda movendo o texto para a direita */
