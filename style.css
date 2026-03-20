@@ -26,33 +26,24 @@ body {
 }
 
 .header-inner {
-  max-width: 900px;
+  max-width: 1100px;           /* dá mais largura ao cabeçalho */
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: space-between; /* título à esquerda, menu à direita */
   gap: 20px;
 }
 
-.logo-block {
-  display: flex;
-  flex-direction: column;
-}
-
-.site-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.site-subtitle {
-  font-size: 0.85rem;
-  color: #666;
+.site-nav {
+  display: flex;               /* mete os links todos na mesma linha */
+  flex-wrap: nowrap;           /* impede que quebrem de linha */
 }
 
 .site-nav a {
   margin-left: 16px;
   font-size: 0.9rem;
+  white-space: nowrap;         /* cada link não quebra em duas linhas */
   color: #444;
   text-decoration: none;
 }
@@ -62,6 +53,24 @@ body {
   color: #000;
   text-decoration: underline;
 }
+
+/* Em ecrãs pequenos, aí sim deixamos quebrar */
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;           /* permite quebrar em várias linhas no telemóvel */
+  }
+
+  .site-nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+}
+
 
 /* Conteúdo principal com coluna vazia à esquerda */
 .page {
