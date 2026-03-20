@@ -75,7 +75,7 @@ body {
 /* Conteúdo principal com coluna vazia à esquerda */
 .page {
   max-width: 900px;
-  margin: 120px auto 40px auto; /* aumenta este 120px */
+  margin: 100px auto 40px auto; /* aumenta este 120px */
   padding: 0 40px 40px 40px;
   display: block;
 }
