@@ -178,6 +178,18 @@ a:focus {
 .blog-title a:focus {
   text-decoration: underline;
 }
+.society-entry h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4em;
+}
+
+.society-image {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  margin-top: 12px;
+}
 
 .blog-meta {
   font-size: 0.8rem;
