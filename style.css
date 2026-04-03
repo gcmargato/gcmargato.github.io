@@ -151,3 +151,42 @@ a:focus {
     max-width: 100%;
   }
 }
+
+/* Lista de posts de blog */
+.blog-list {
+  margin-left: 160px;      /* mesma coluna que o resto do site */
+  max-width: 540px;
+}
+
+.blog-post {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.blog-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.2em;
+}
+
+.blog-title a {
+  color: #111;
+  text-decoration: none;
+}
+
+.blog-title a:hover,
+.blog-title a:focus {
+  text-decoration: underline;
+}
+
+.blog-meta {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 0.4em;
+}
+
+.blog-excerpt {
+  font-size: 0.95rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
