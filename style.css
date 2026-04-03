@@ -202,3 +202,124 @@ a:focus {
   text-align: justify;
   text-justify: inter-word;
 }
+/* =========================
+   CV PAGE
+   ========================= */
+
+.page {
+  max-width: 980px;
+  margin: 115px auto 48px auto;
+  padding: 0 32px 40px 32px;
+}
+
+.content-section {
+  margin-left: 180px;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.content-section h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.content-section h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 1.1rem;
+  margin-bottom: 0.45rem;
+}
+
+.content-section p {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  text-align: justify;
+  margin-bottom: 0.9rem;
+}
+
+.content-section ul {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.content-section li {
+  margin-bottom: 0.55rem;
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.content-section strong {
+  font-weight: 600;
+}
+
+.content-section em {
+  font-style: italic;
+}
+
+.site-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 14px 20px 20px 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Melhor leitura para links dentro do CV */
+.content-section a {
+  color: #005fa3;
+  text-decoration: none;
+}
+
+.content-section a:hover,
+.content-section a:focus {
+  text-decoration: underline;
+}
+
+/* Ajuste fino para secções muito longas */
+.content-section + .content-section {
+  margin-top: 0.4rem;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .page {
+    margin: 110px auto 32px auto;
+    padding: 0 20px 30px 20px;
+  }
+
+  .content-section {
+    margin-left: 80px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    margin: 110px 10px 24px 10px;
+    padding: 0 10px 24px 10px;
+  }
+
+  .content-section {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .content-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .content-section h3 {
+    font-size: 0.95rem;
+  }
+
+  .content-section p,
+  .content-section li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+}
