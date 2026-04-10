@@ -324,7 +324,7 @@ a:focus {
   }
 }
 .profile-image {
-  max-width: 280px;   /* ajusta este valor */
+  max-width: 100px;   /* ajusta este valor */
   width: 100%;
   height: auto;
   display: block;
