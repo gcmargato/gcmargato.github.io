@@ -726,26 +726,51 @@ a:focus {
   }
 }
 
-.tag-grid {
+/* =========================
+   Caixas para research interests
+   e methodological tools
+   ========================= */
+
+.box-grid {
   grid-column: 2;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
 
   border-top: 1px solid var(--line-dark);
   border-left: 1px solid var(--line-dark);
 }
 
-.tag-grid span {
-  padding: 12px 16px;
+.info-box {
+  min-height: 170px;
+  padding: 20px;
 
   border-right: 1px solid var(--line-dark);
   border-bottom: 1px solid var(--line-dark);
 
-  font-size: 0.78rem;
+  background: var(--bg);
+}
+
+.info-box h3 {
+  margin: 0 0 0.75rem;
+
+  font-size: 0.86rem;
+  line-height: 1.25;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text);
+}
+
+.info-box p {
+  margin: 0;
+
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--muted);
+  text-align: left;
+}
+
+.info-box:hover {
+  background: var(--paper);
 }
