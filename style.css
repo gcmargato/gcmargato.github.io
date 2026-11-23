@@ -727,50 +727,152 @@ a:focus {
 }
 
 /* =========================
-   Caixas para research interests
-   e methodological tools
+   Cards: Research interests
+   e Methodological repertoires
    ========================= */
 
-.box-grid {
+.cards-grid {
   grid-column: 2;
 
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
-
-  border-top: 1px solid var(--line-dark);
-  border-left: 1px solid var(--line-dark);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
 }
 
-.info-box {
-  min-height: 170px;
-  padding: 20px;
+.research-card {
+  position: relative;
 
-  border-right: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
+  height: 100%;
+  min-height: 220px;
 
-  background: var(--bg);
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  padding: 32px 26px;
+
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.info-box h3 {
-  margin: 0 0 0.75rem;
+.research-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
+  border-color: rgba(15, 23, 42, 0.14);
+}
 
-  font-size: 0.86rem;
+.research-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 7px;
+}
+
+.coral-line::before {
+  background: #e76f51;
+}
+
+.teal-line::before {
+  background: #2a9d8f;
+}
+
+.yellow-line::before {
+  background: #f4a261;
+}
+
+.blue-line::before {
+  background: #457b9d;
+}
+
+.purple-line::before {
+  background: #7b61ff;
+}
+
+.green-line::before {
+  background: #6a994e;
+}
+
+.red-line::before {
+  background: #bc4749;
+}
+
+.card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+  color: #374151;
+
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.research-card h3 {
+  margin: 0 0 12px;
+
+  font-size: 1.18rem;
   line-height: 1.25;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+
+  color: #111827;
 }
 
-.info-box p {
+.research-card p {
   margin: 0;
 
-  font-size: 0.94rem;
-  line-height: 1.55;
-  color: var(--muted);
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.96rem;
+
   text-align: left;
 }
 
-.info-box:hover {
-  background: var(--paper);
+/* Para garantir que estas cards não são afetadas por estilos antigos */
+.research-card h3,
+.research-card p {
+  grid-column: auto;
+}
+
+/* Responsivo */
+@media (max-width: 720px) {
+  .cards-grid {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .research-card {
+    min-height: auto;
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  .research-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .research-card p {
+    font-size: 0.95rem;
+  }
 }
