@@ -1,339 +1,327 @@
-/* Reset básico */
+/* =========================
+   Base
+   ========================= */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1f2933;
+  --color-muted: #6b7280;
+  --color-soft: #f7f7f5;
+  --color-border: #e5e7eb;
+  --color-link: #1f5f8b;
+  --color-link-hover: #0f3558;
+
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  --max-width: 1080px;
+  --content-width: 680px;
+  --header-height: 76px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Página */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, "Helvetica", Arial, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background-color: #ffffff;
-  padding-top: 90px; /* compensa a altura do header fixo */
+  font-family: var(--font-main);
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+  padding-top: var(--header-height);
+  font-size: 16px;
 }
 
-/* Cabeçalho fixo com navegação */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  z-index: 10;
+/* Melhor comportamento para imagens */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.header-inner {
-  max-width: 1100px;           /* dá mais largura ao cabeçalho */
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between; /* título à esquerda, menu à direita */
-  gap: 20px;
-}
-
-.site-nav {
-  display: flex;               /* mete os links todos na mesma linha */
-  flex-wrap: nowrap;           /* impede que quebrem de linha */
-}
-
-.site-nav a {
-  margin-left: 16px;
-  font-size: 0.9rem;
-  white-space: nowrap;         /* cada link não quebra em duas linhas */
-  color: #444;
-  text-decoration: none;
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-  color: #000;
-  text-decoration: underline;
-}
-
-/* Em ecrãs pequenos, aí sim deixamos quebrar */
-@media (max-width: 700px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-nav {
-    flex-wrap: wrap;           /* permite quebrar em várias linhas no telemóvel */
-  }
-
-  .site-nav a {
-    margin-left: 0;
-    margin-right: 16px;
-  }
+/* Seleção de texto mais discreta */
+::selection {
+  background: #dcecff;
+  color: #111827;
 }
 
 
-/* Conteúdo principal com coluna vazia à esquerda */
-.page {
-  max-width: 900px;
-  margin: 100px auto 40px auto; /* aumenta este 120px */
-  padding: 0 40px 40px 40px;
-  display: block;
-}
+/* =========================
+   Links
+   ========================= */
 
-/* Criar “coluna vazia” à esquerda movendo o texto para a direita */
-.content-section {
-  margin-bottom: 28px;
-  margin-left: 60px;          /* espaço vazio à esquerda */
-  max-width: 540px;            /* coluna de texto */
-}
-
-/* Títulos e texto justificado */
-.content-section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.4em;
-}
-
-.content-section p,
-.content-section ul {
-  font-size: 0.98rem;
-  text-align: justify;         /* texto justificado */
-  text-justify: inter-word;    /* melhor distribuição entre palavras [web:53][web:59] */
-}
-
-.content-section ul {
-  list-style-type: disc;
-  padding-left: 1.2em;         /* para o bullet não colar na margem */
-}
-
-.content-section li {
-  margin-bottom: 0.3em;
-}
-
-/* Links */
 a {
-  color: #0066cc;
+  color: var(--color-link);
   text-decoration: none;
+  text-underline-offset: 3px;
 }
 
 a:hover,
 a:focus {
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 
-/* Rodapé */
-.site-footer {
-  border-top: 1px solid #e0e0e0;
-  padding: 14px 20px 20px 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #777;
+
+/* =========================
+   Header
+   ========================= */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(10px);
 }
 
-/* Responsivo: reduzir a coluna vazia à esquerda em ecrãs pequenos */
-@media (max-width: 700px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-nav a {
-    margin-left: 0;
-    margin-right: 16px;
-  }
-
-  .page {
-    margin: 110px 10px 30px 10px;
-    padding: 0 10px 30px 10px;
-  }
-
-  .content-section {
-    margin-left: 0;        /* sem coluna vazia em telemóvel */
-    max-width: 100%;
-  }
+.header-inner {
+  max-width: var(--max-width);
+  min-height: var(--header-height);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
 }
 
-/* Lista de posts de blog */
-.blog-list {
-  margin-left: 160px;      /* mesma coluna que o resto do site */
-  max-width: 540px;
+.site-title,
+.header-inner h1,
+.header-inner h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #111827;
 }
 
-.blog-post {
-  margin-bottom: 32px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.blog-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.2em;
-}
-
-.blog-title a {
-  color: #111;
+.site-title a,
+.header-inner h1 a,
+.header-inner h2 a {
+  color: inherit;
   text-decoration: none;
 }
 
-.blog-title a:hover,
-.blog-title a:focus {
-  text-decoration: underline;
-}
-.society-entry h3 {
-  font-size: 1rem;
-  margin-bottom: 0.4em;
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
-.society-image {
-  display: block;
-  width: 100%;
-  max-width: 540px;
-  height: auto;
-  margin-top: 12px;
+.site-nav a {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.blog-meta {
-  font-size: 0.8rem;
-  color: #777;
-  margin-bottom: 0.4em;
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #111827;
+  text-decoration: none;
 }
 
-.blog-excerpt {
-  font-size: 0.95rem;
-  text-align: justify;
-  text-justify: inter-word;
+.site-nav a[aria-current="page"],
+.site-nav .active {
+  color: #111827;
+  font-weight: 500;
 }
+
+
 /* =========================
-   CV PAGE
+   Layout principal
    ========================= */
 
 .page {
-  max-width: 980px;
-  margin: 115px auto 48px auto;
-  padding: 0 32px 40px 32px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 72px 32px 64px;
 }
 
+/* Layout com margem lateral institucional */
 .content-section {
+  max-width: var(--content-width);
   margin-left: 180px;
-  max-width: 620px;
-  margin-bottom: 32px;
+  margin-bottom: 44px;
+}
+
+.content-section:first-child {
+  margin-top: 0;
+}
+
+.content-section h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  color: #111827;
 }
 
 .content-section h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid #d9d9d9;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--color-border);
+  color: #111827;
 }
 
 .content-section h3 {
-  font-size: 0.98rem;
+  font-size: 1rem;
+  line-height: 1.4;
   font-weight: 600;
-  color: #222;
-  margin-top: 1.1rem;
-  margin-bottom: 0.45rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
 }
 
 .content-section p {
-  font-size: 0.97rem;
-  line-height: 1.75;
-  text-align: justify;
-  margin-bottom: 0.9rem;
+  font-size: 0.98rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
 }
 
-.content-section ul {
-  list-style-type: disc;
-  padding-left: 1.2rem;
-  margin-bottom: 0.5rem;
+/* Justificação apenas em ecrãs confortáveis */
+@media (min-width: 760px) {
+  .content-section p,
+  .content-section li,
+  .blog-excerpt {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+.content-section ul,
+.content-section ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .content-section li {
   margin-bottom: 0.55rem;
   line-height: 1.65;
-  text-align: justify;
 }
 
 .content-section strong {
-  font-weight: 600;
+  font-weight: 650;
 }
 
 .content-section em {
   font-style: italic;
 }
 
-.site-footer {
-  border-top: 1px solid #e0e0e0;
-  padding: 14px 20px 20px 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #777;
+
+/* =========================
+   Introdução / Homepage
+   ========================= */
+
+.intro {
+  max-width: 760px;
 }
 
-/* Melhor leitura para links dentro do CV */
-.content-section a {
-  color: #005fa3;
+.intro h1 {
+  margin-bottom: 1.2rem;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: #374151;
+}
+
+.profile-image {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 2px;
+  margin: 1rem 0 1.5rem;
+  filter: grayscale(10%);
+}
+
+
+/* =========================
+   Blog / Posts
+   ========================= */
+
+.blog-list {
+  max-width: var(--content-width);
+  margin-left: 180px;
+}
+
+.blog-post {
+  padding: 0 0 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-title {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  font-weight: 650;
+  margin-bottom: 0.25rem;
+}
+
+.blog-title a {
+  color: #111827;
   text-decoration: none;
 }
 
-.content-section a:hover,
-.content-section a:focus {
-  text-decoration: underline;
+.blog-title a:hover,
+.blog-title a:focus {
+  color: var(--color-link);
+  text-decoration: none;
 }
 
-/* Ajuste fino para secções muito longas */
-.content-section + .content-section {
-  margin-top: 0.4rem;
+.blog-meta {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-bottom: 0.6rem;
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-  .page {
-    margin: 110px auto 32px auto;
-    padding: 0 20px 30px 20px;
-  }
-
-  .content-section {
-    margin-left: 80px;
-    max-width: 100%;
-  }
+.blog-excerpt {
+  font-size: 0.96rem;
+  color: #374151;
 }
 
-@media (max-width: 700px) {
-  .page {
-    margin: 110px 10px 24px 10px;
-    padding: 0 10px 24px 10px;
-  }
 
-  .content-section {
-    margin-left: 0;
-    max-width: 100%;
-  }
+/* =========================
+   Society / imagens
+   ========================= */
 
-  .content-section h2 {
-    font-size: 1.1rem;
-  }
-
-  .content-section h3 {
-    font-size: 0.95rem;
-  }
-
-  .content-section p,
-  .content-section li {
-    font-size: 0.95rem;
-    line-height: 1.65;
-  }
+.society-entry h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
-.profile-image {
-  max-width: 300px;   /* ajusta este valor */
-  width: 100%;
-  height: auto;
+
+.society-image {
   display: block;
+  width: 100%;
+  max-width: var(--content-width);
+  height: auto;
+  margin-top: 16px;
+  border: 1px solid var(--color-border);
 }
+
+
+/* =========================
+   Skills
+   ========================= */
+
 .skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 36px;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .skills-column h3 {
@@ -344,9 +332,279 @@ a:focus {
   margin-bottom: 0;
 }
 
-@media (max-width: 700px) {
+
+/* =========================
+   Cartões académicos opcionais
+   ========================= */
+
+.card-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.card {
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.meta {
+  font-size: 0.84rem;
+  color: var(--color-muted);
+}
+
+
+/* =========================
+   Página criativa: zines e colagens
+   ========================= */
+
+.creative-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 32px 80px;
+}
+
+.creative-hero {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.creative-hero .eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-bottom: 0.8rem;
+}
+
+.creative-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  color: #111827;
+  margin-bottom: 1.4rem;
+}
+
+.creative-hero p {
+  font-size: 1.05rem;
+  max-width: 620px;
+  color: #374151;
+}
+
+/* Galeria de zines */
+.zine-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+
+.zine-card {
+  grid-column: span 4;
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.zine-card:hover,
+.zine-card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(17, 24, 39, 0.08);
+  text-decoration: none;
+}
+
+.zine-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--color-soft);
+}
+
+.zine-card-content {
+  padding: 16px;
+}
+
+.zine-card h2 {
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 650;
+  margin-bottom: 0.35rem;
+  color: #111827;
+}
+
+.zine-card p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Variações visuais para quebrar rigidez */
+.zine-card.featured {
+  grid-column: span 6;
+}
+
+.zine-card.small {
+  grid-column: span 3;
+}
+
+.zine-card.tall img {
+  aspect-ratio: 3 / 4.6;
+}
+
+/* Parede de colagens */
+.collage-wall {
+  columns: 3 240px;
+  column-gap: 22px;
+  margin-top: 48px;
+}
+
+.collage-item {
+  break-inside: avoid;
+  margin-bottom: 22px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.collage-item img {
+  display: block;
+  width: 100%;
+}
+
+.collage-caption {
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 22px 32px 28px;
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--color-muted);
+}
+
+
+/* =========================
+   Responsivo
+   ========================= */
+
+@media (max-width: 960px) {
+  .content-section,
+  .blog-list {
+    margin-left: 96px;
+  }
+
+  .zine-card,
+  .zine-card.featured {
+    grid-column: span 6;
+  }
+
+  .zine-card.small {
+    grid-column: span 4;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --header-height: auto;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    min-height: auto;
+    padding: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .site-nav {
+    gap: 12px 18px;
+    flex-wrap: wrap;
+  }
+
+  .page,
+  .creative-page {
+    padding: 40px 20px 56px;
+  }
+
+  .content-section,
+  .blog-list {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .content-section {
+    margin-bottom: 36px;
+  }
+
+  .content-section h1 {
+    font-size: 2rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.08rem;
+  }
+
+  .content-section p,
+  .content-section li {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .creative-hero {
+    margin-bottom: 36px;
+  }
+
+  .creative-hero h1 {
+    font-size: clamp(2.6rem, 17vw, 4.4rem);
+  }
+
+  .zine-grid {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .zine-card,
+  .zine-card.featured,
+  .zine-card.small {
+    grid-column: auto;
+  }
+
+  .collage-wall {
+    columns: 1;
   }
 }
