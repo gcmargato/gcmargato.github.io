@@ -725,10 +725,7 @@ a:focus {
     columns: 1;
   }
 }
-  .collage-wall {
-    columns: 1;
-  }
-}
+
 .tag-grid {
   grid-column: 2;
 
